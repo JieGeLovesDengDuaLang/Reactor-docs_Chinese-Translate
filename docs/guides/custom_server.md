@@ -1,21 +1,21 @@
-# Custom server
+# 私服
 
-sidebar_position: 4
-
-Custom server is required to send [Custom RPCs](guides/custom_rpcs.md) and generally is strongly recommended over playing on official servers.
+私服便于对[自定义 RPC](/docs/guides/custom_rpcs.md) 的处理，但是通常建议在官方服务器上游玩。
 
 ## Impostor
 
-[Impostor](https://github.com/Impostor/Impostor) is a C# implementation of Among Us server with 1st party Reactor support.
+[Impostor](https://github.com/Impostor/Impostor) 是 Among Us 服务器的 C# 实现，并且有对 Reactor 的第一方支持。
 
-1. Install Impostor following their [docs](https://github.com/Impostor/Impostor/blob/master/docs/Running-the-server.md)
-2. Download Reactor.Impostor.dll from [NuclearPowered/Reactor.Impostor/releases](https://github.com/NuclearPowered/Reactor.Impostor/releases) and copy it to the server's `plugins` folder
-3. Your server now supports modded handshake and custom rpcs! :tada:
+1. 根据他们的[文档说明](https://github.com/Impostor/Impostor/blob/master/docs/Running-the-server.md)来对 Impostor 进行安装。
 
-Reactor.Impostor provides an API that you can use in your Impostor plugins to handle the custom rpcs on the server side.
+2. 从 [NuclearPowered/Reactor.Impostor/releases](https://github.com/NuclearPowered/Reactor.Impostor/releases) 下载 Reactor.Impostor.dll，把它放到 `plugins` 文件夹中。
+
+3. 你的服务器现在支持 Handshake 和自定义 RPC 了！🎉
+
+Reactor.Impostor 提供了一个 API，你可以用 Impostor 来处理服务器端的自定义 RPC。
 
 ## Hindenburg
-[Hindenburg](https://github.com/SkeldJS/Hindenburg) is another option, written in TypeScript NodeJS although not supported officialy by us.
+[Hindenburg](https://github.com/SkeldJS/Hindenburg) 是另一个选择，使用 TypeScript NodeJS 编写，虽然并不支持 Reactor。
 
 ### 目录
 
