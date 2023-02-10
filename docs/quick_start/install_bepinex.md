@@ -6,7 +6,7 @@
 ## 如何下载
 
 BepInEx 以 zip 文件发布。文件名将会标注它的一些信息。
-  - 下载 `BepInEx-Unity.IL2CPP-win-x86-....zip` from [builds.bepinex.dev](https://builds.bepinex.dev/projects/bepinex_be).
+  - 从 [builds.bepinex.dev](https://builds.bepinex.dev/projects/bepinex_be) 下载 `BepInEx-Unity.IL2CPP-win-x86-....zip`。
 
 
 ### 安装 BepInEx
