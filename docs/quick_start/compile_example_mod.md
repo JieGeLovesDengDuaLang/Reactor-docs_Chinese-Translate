@@ -15,7 +15,7 @@
 dotnet build
 ```
 
-.dll 文件应该输出在 `bin/Debug/net6.0/ModExperiment.dll`，把它复制到游戏根目录下的 `BepInEx/plugins` 文件夹下或者使用命令直接输出到 `BepInEx/plugins` 下：
+.dll 文件应该输出在 `bin/Debug/net6.0/你的模组名称.dll`，把它复制到游戏根目录下的 `BepInEx/plugins` 文件夹下或者使用命令直接输出到 `BepInEx/plugins` 下：
 
 ```shell
 dotnet build -p:AmongUs="文\件\夹\路\径"
