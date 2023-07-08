@@ -109,6 +109,11 @@ Rpc<SayHelloRpc>.Instance.Send(new SayHelloRpc.Data("Hello from docs.reactor.gg!
 
 ---
 
+译者注：本教程对RPC的解释并不全面，因此在这里添加几个注释：
+RPC：远程过程调用，通过对一个客户端发送消息以远程执行对方客户端的一个方法
+例：客户端1向客户端2发送了数据“0”，而0在程序中定义为“开始游戏”，客户端2接受数据0后会执行用于开始游戏的函数Start()。
+
+
 ### 目录
 
 - 总介绍
