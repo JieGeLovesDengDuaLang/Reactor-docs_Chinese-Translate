@@ -9,9 +9,9 @@
 
 如果还有问题，你可以在 [Reactor 的 Discord 服务器](https://reactor.gg/discord) 求助。
 
-## 接下来，我应该去哪里？
+## 接下来的模组之路，我应该怎么走？
 
-你应该继续学习，参考其它 Among Us 模组代码，学习 Harmony,BepInEx 等及对开发模组有用的教程。建议继续学习 [BepInEx 教程](/docs/guides/bepinex_guide.md)， [Harmony 教程](/docs/guides/harmony_guide)，和[调试帮助](/docs/guides/debugging.md)。
+你应该继续学习，参考其它 Among Us 模组代码，学习 Harmony，BepInEx 等及对开发模组有用的教程。建议继续学习 [BepInEx 教程](/docs/guides/bepinex_guide.md)， [Harmony 教程](/docs/guides/harmony_guide)，和[调试帮助](/docs/guides/debugging.md)。
 
 ### 目录
 
