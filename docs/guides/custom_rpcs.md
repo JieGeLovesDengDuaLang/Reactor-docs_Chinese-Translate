@@ -108,13 +108,13 @@ Rpc<SayHelloRpc>.Instance.Send(new SayHelloRpc.Data("Hello from docs.reactor.gg!
 `Rpc<T>.Instance` 返回 T 的实例，方便在 RPC 上调用与访问成员。你可以用它来创建 Helper 方法。
 
 ---
-
-译者注：本教程对RPC的解释并不全面，因此在这里添加几个注释：<br/>
+### 译者注释
+#### 重要！RPC的Id不要过小（因为可能会错误地与原版游戏RPC的Id重合）！推荐Id大于等于50
+本教程对RPC的解释并不全面，因此在这里添加几个注释：<br/>
 RPC：远程过程调用，通过对一个客户端发送消息以远程执行对方客户端的一个方法。<br/>
-就拿刚才的例子来说，玩家向本地写入了“0”（CustomRpcCalls.SayHello）这个代表打招呼Rpc的Id。紧接着，玩家继续写入要发送的消息，最后玩家将存入本地的消息发送出去。<br/>这样各位可能不理解，那么我们使用树懒提供的RPC函数举例：
+就拿刚才的例子来说，玩家向本地写入了“0”（CustomRpcCalls.SayHello）这个代表打招呼Rpc的Id。紧接着，玩家继续写入要发送的消息，最后玩家将存入本地的消息发送出去。<br/>这样各位可能不理解，那么我们使用树懒提供的原版RPC函数举例：
 ```csharp
-Hazel.MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(PlayetControl.LocalPlayer.NetId, (byte)CustomRpcCalls.SayHello, Hazel.SendOption.Reliable, -1);
-//用于启动一个RPC的函数，返回一个消息写入器
+MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(PlayetControl.LocalPlayer.NetId, (byte)CustomRpcCalls.SayHello, SendOption.Reliable, -1);//用于启动一个RPC的函数，返回一个消息写入器
 //第一个参数：发送者的NetId
 //第二个参数：RPC的Id
 //第三个参数：发送的消息是否可信
@@ -122,8 +122,26 @@ Hazel.MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(PlayetCo
 writer.Write(/*要发送的字符串*/);//向本地写入数据
 AmongUsClient.Instance.FinishRpcImmediately(writer);//发送RPC
 ```
-
-
+##### 注意：下方内容仅适用于无Reactor的模组！Reactor会帮你处理好下面的问题的！
+我们既然发送了RPC，别的客户端又应该如何接收RPC呢？<br/>答案是Patch一下接收RPC的方法。（需要一定的Harmony经验，请参考Harmony官方文档）
+```csharp
+[HarmonyPatch(typeof(PlayerControl), nameof(PlayefControl.HandleRpc))]//标记Patch的目标方法
+class ReceiveRpcPatch
+{
+     static void Postfix/*名称必须为Postfix，意为在原方法执行后执行*/(PlayerControl __instance, [HarmonyArgument(0)] byte callId, [HarmonyArgument(1)] MessageReader reader)//获取接受消息的玩家、RPC的Id以及消息接收器
+     {
+          CustomRpcCalls rpc = (CustomRpcCalls)callId;//转换RPC的Id至枚举
+          switch (rpc)//switch语句选择RPC要执行的内容
+          {
+                case CustomRpcCalls.SayHello:
+                      string msg = reader.ReadString();//获取字符串
+                      Logger<ExamplePlugin>.Info($"{__instance.Data.PlayerName} said: {message}");//输出玩家名称及内容
+                      break;
+          }
+     }
+}
+```
+在这段代码中，我们Patch了接收RPC的方法，获取了原方法的两个参数，并转换Id为枚举，通过switch语句进行判断，如果RPC是打招呼，那么在控制台输出消息。
 
 ### 目录
 
