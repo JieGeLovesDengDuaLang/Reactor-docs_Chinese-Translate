@@ -109,9 +109,20 @@ Rpc<SayHelloRpc>.Instance.Send(new SayHelloRpc.Data("Hello from docs.reactor.gg!
 
 ---
 
-译者注：本教程对RPC的解释并不全面，因此在这里添加几个注释：
-RPC：远程过程调用，通过对一个客户端发送消息以远程执行对方客户端的一个方法
-例：客户端1向客户端2发送了数据“0”，而0在程序中定义为“开始游戏”，客户端2接受数据0后会执行用于开始游戏的函数Start()。
+译者注：本教程对RPC的解释并不全面，因此在这里添加几个注释：<br/>
+RPC：远程过程调用，通过对一个客户端发送消息以远程执行对方客户端的一个方法。<br/>
+就拿刚才的例子来说，玩家向本地写入了“0”（CustomRpcCalls.SayHello）这个代表打招呼Rpc的Id。紧接着，玩家继续写入要发送的消息，最后玩家将存入本地的消息发送出去。<br/>这样各位可能不理解，那么我们使用树懒提供的RPC函数举例：
+```csharp
+Hazel.MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(PlayetControl.LocalPlayer.NetId, (byte)CustomRpcCalls.SayHello, Hazel.SendOption.Reliable, -1);
+//用于启动一个RPC的函数，返回一个消息写入器
+//第一个参数：发送者的NetId
+//第二个参数：RPC的Id
+//第三个参数：发送的消息是否可信
+//第四个参数：接受者的NetId，-1代表所有人，-2代表无
+writer.Write(/*要发送的字符串*/);//向本地写入数据
+AmongUsClient.Instance.FinishRpcImmediately(writer);//发送RPC
+```
+
 
 
 ### 目录
