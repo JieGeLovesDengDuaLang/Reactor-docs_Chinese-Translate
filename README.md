@@ -2,17 +2,11 @@
 
 ## 译者的话
 
-本教程旨在于能够让人通过便捷的反应堆插件来制作优质的模组，而不是在B站上发《114514岁初生辍学，制作Among Us模组！这次，我要玩把大的！》热量倒是被你蹭到了，但是模组呢？既没有职业也没有玩法，左上角只有一个孤零零的反应堆标识，主界面只有一个小小的作者介绍……
-
-### 注：不要过度依赖反应堆，要能使用BepInEx来写模组
-
 在看之前，你最好要有一定C#的基础，还有最好先看看[BepInEx教程（如果不需要依赖Reactor，也可以参考此文档）](https://docs.bepinex.dev/)和[Harmony教程](https://harmony.pardeike.net/articles/intro.html)（都未翻译，有空去翻）
 
-以上便是Among Us模组的某些禁区，不要触犯为好，如果你知道了，请点[这里](/docs/introduction/getting_started.md)
+如果你准备好了，请点[这里](/docs/introduction/getting_started.md)
 
 翻译 By 杰哥
-
-（希望我翻译这东西之后不会出什么事……）
 
 # 目录
 
