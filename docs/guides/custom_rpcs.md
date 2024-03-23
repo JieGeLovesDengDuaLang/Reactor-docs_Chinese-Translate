@@ -118,7 +118,7 @@ MessageWriter writer = AmongUsClient.Instance.StartRpcImmediately(PlayetControl.
 //第一个参数：发送者的NetId
 //第二个参数：RPC的Id
 //第三个参数：发送的消息是否可信
-//第四个参数：接受者的NetId，-1代表所有人，-2代表无
+//第四个参数：接受者的PlayerId，-1代表所有人，-2代表无
 writer.Write(/*要发送的字符串*/);//向本地写入数据
 AmongUsClient.Instance.FinishRpcImmediately(writer);//发送RPC
 ```
