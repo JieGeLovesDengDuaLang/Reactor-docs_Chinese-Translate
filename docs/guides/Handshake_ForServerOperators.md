@@ -1,4 +1,4 @@
-# Handshake（私服腐竹）
+# Handshake（私服服主）
 
 如果你用的是内鬼私服，你需要安装一些插件来充分自定义 Handshake。
 
