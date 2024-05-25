@@ -1,12 +1,10 @@
-# 反应堆模组教程文档翻译
+# 反应堆模组框架文档
 
 ## 译者的话
 
-在看之前，你最好要有一定C#的基础，还有最好先看看[BepInEx教程（如果不需要依赖Reactor，也可以参考此文档）](https://docs.bepinex.dev/)和[Harmony教程](https://harmony.pardeike.net/articles/intro.html)（都未翻译，有空去翻）
+在看之前，你最好要有一定C#的基础，还有最好先看看[BepInEx教程](https://docs.bepinex.dev/)和[Harmony教程](https://harmony.pardeike.net/articles/intro.html)（英文文档）
 
 如果你准备好了，请点[这里](/docs/introduction/getting_started.md)
-
-翻译 By 杰哥
 
 # 目录
 
