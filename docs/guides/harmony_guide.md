@@ -20,26 +20,24 @@ Harmony 补丁分为前置与后置补丁。
 - 在原方法的代码逻辑执行后执行自定义代码。
 
 这些包含名为`Prefix`或`Postfix`静态方法补丁类通常会被**特性**标记。你可以通过向不定方法添加一个名为`__instance`且类型为补丁目标类型的参数以访问当前实例。
-- 除了 `__instance`, 还有许多能被加入补丁方法的特殊参数，
-  such as the ability to access arguments that are passed in from the existing method. They can all
-  be found at https://github.com/BepInEx/HarmonyX/wiki/Patch-parameters.
+- 除了 `__instance`, 还有许多能被加入补丁方法的特殊参数。要了解更多，请访问 https://github.com/BepInEx/HarmonyX/wiki/Patch-parameters.
 
-## Understanding how to Patch Classes
+## 例子
 
-An example patch is below.
+下方是一个示例。
 In particular, we call which class we want to detect, for instance, we will use the `PlayerControl` class.
 After that, we would like to define what method we want to detect in that class. In this scenario, we will
 use the `FixedUpdate` method which runs every time the engine updates physics.
 
 In order for us to patch this class and method, we can use the following line:
 ```csharp
-// The type in the typeof() is the class being patched.
-// The method in the nameof() is the method of the class that is being patched
+// 在 typeof() 中的类是将要被修补的类
+// 在 nameof() 中的方法是将要被修补的方法
 [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.FixedUpdate))]
 ```
-*Make sure that this is above your class*
+*确保特性在你的类的上方*
 
-After that, we can create a Postfix method since it is not necessary to use a Prefix
+之后我们便可以定义一个名为 Postfix 的方法 since it is not necessary to use a Prefix
 It is easy practice to make sure your method is public, static, and that your variable is called `__instance`
 You then can access the `PlayerControl` from the variable `__instance`
 
@@ -51,10 +49,9 @@ namespace ExampleMod
     [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.FixedUpdate))]
     public static class PlayerControlPatch
     {
-        // It is nice to know that this method runs for all players so all player's names are changed to "Apollo was here"
         public static void Postfix(PlayerControl __instance)
         {
-            // This changes all player's name into "Apollo was here"
+            // 这将修改所有人都名字为“Apollo was here”（仅自己可见）
             __instance.nameText.Text = "Apollo was here";
         }
     }
