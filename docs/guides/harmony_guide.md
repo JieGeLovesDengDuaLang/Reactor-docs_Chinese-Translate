@@ -1,29 +1,26 @@
-# Harmony Guide
+# Harmony 教程
 
-## Intro to Prefixes and Postfixes
+## 前置补丁（Prefix）与后置补丁（Postfix）的介绍
 
-Harmony Patches are defined as Prefixes and Postfixes.
-Extensive Harmony patch documentation is [here](https://harmony.pardeike.net/articles/patching.html).
+Harmony 补丁分为前置与后置补丁。
+更详细的 Harmony 补丁文档请点[这里](https://harmony.pardeike.net/articles/patching.html).
 
-Prefixes run before the original method. It can be used to:
-- Access and edit the arguments of the original method.
-- Set the result of the original method.
-- Skip the original method.
+前置补丁在原方法执行前执行。它可以用来：
+- 访问并修改原方法的参数。
+- 设置原方法的返回值。
+- 跳过原方法的执行。
 - One key difference to keep in mind is that while in true Harmony, patched prefixes can cancel out
   other prefixes, this is **NOT THE CASE** with HarmonyX, the fork of Harmony that BepInEx uses.
   With HarmonyX, you cannot cancel out other prefixes when returning `false` and attempting to skip the original method.
   -  Detailed rationale and implementation differences found here https://github.com/BepInEx/HarmonyX/wiki/Prefix-changes
 
-Postfixes run after the original method. They can be used to:
-- Read or change the result of the original method.
-- Access the arguments of the original method.
-- Run custom code after the logic of the original method has executed.
+后置补丁在原方法执行后执行。它可以用来：
+- 读取或修改原方法的返回值。
+- 访问原方法的参数。
+- 在原方法的代码逻辑执行后执行自定义代码。
 
-They are usually defined as **attributes** above a patch class,
-which contains static methods named `Prefix` and/or `Postfix`. You can
-access the current instance by adding a `__instance` parameter to the method (with the type
-of the class you are patching).
-- Aside from `__instance`, there are many more special parameters that can be added to the method,
+这些包含名为`Prefix`或`Postfix`静态方法补丁类通常会被**特性**标记。你可以通过向不定方法添加一个名为`__instance`且类型为补丁目标类型的参数以访问当前实例。
+- 除了 `__instance`, 还有许多能被加入补丁方法的特殊参数，
   such as the ability to access arguments that are passed in from the existing method. They can all
   be found at https://github.com/BepInEx/HarmonyX/wiki/Patch-parameters.
 
