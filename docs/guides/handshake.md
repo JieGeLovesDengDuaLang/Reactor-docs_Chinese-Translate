@@ -4,7 +4,7 @@ Reactor Handshake 能够确定房间内所有玩家都在游玩同一版本的�
 
 针对不同人群的问题，请选择一个分类：
 
-[Handshake（玩家）](/docs/guides/Handshake_ForPlayers.md) | [Handshake（私服腐竹）](/docs/guides/Handshake_ForServerOperators.md) | [Handshake（模组开发者）](/docs/guides/Handshake_ForModDevelopers.md)
+[Handshake（玩家）](/docs/guides/Handshake_ForPlayers.md) | [Handshake（私服服主）](/docs/guides/Handshake_ForServerOperators.md) | [Handshake（模组开发者）](/docs/guides/Handshake_ForModDevelopers.md)
 
 如果还有问题，请加入[Reactor 的 Discord 频道](https://reactor.gg/discord)
 
