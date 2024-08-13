@@ -109,7 +109,7 @@ Rpc<SayHelloRpc>.Instance.Send(new SayHelloRpc.Data("Hello from docs.reactor.gg!
 
 ---
 ### 译者注释
-#### 重要！RPC的Id不要过小（因为可能会错误地与原版游戏RPC的Id重合）！推荐Id大于等于50
+#### 重要！RPC的Id不要过小（因为可能会错误地与原版游戏RPC的Id重合）！推荐Id大于等于100
 本教程对RPC的解释并不全面，因此在这里添加几个注释：<br/>
 RPC：远程过程调用，通过对一个客户端发送消息以远程执行对方客户端的一个方法。<br/>
 就拿刚才的例子来说，玩家向本地写入了“0”（CustomRpcCalls.SayHello）这个代表打招呼Rpc的Id。紧接着，玩家继续写入要发送的消息，最后玩家将存入本地的消息发送出去。<br/>这样各位可能不理解，那么我们使用树懒提供的原版RPC函数举例：
