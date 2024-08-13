@@ -3,7 +3,7 @@
 ## 前置补丁（Prefix）与后置补丁（Postfix）的介绍
 
 Harmony 补丁分为前置与后置补丁。
-更详细的 Harmony 补丁文档请点[这里](https://harmony.pardeike.net/articles/patching.html).
+更详细的 Harmony 补丁文档请点[这里](https://harmony.pardeike.net/articles/patching.html)。
 
 前置补丁在原方法执行前执行。它可以用来：
 - 访问并修改原方法的参数。
@@ -25,21 +25,22 @@ Harmony 补丁分为前置与后置补丁。
 ## 例子
 
 下方是一个示例。
-In particular, we call which class we want to detect, for instance, we will use the `PlayerControl` class.
-After that, we would like to define what method we want to detect in that class. In this scenario, we will
-use the `FixedUpdate` method which runs every time the engine updates physics.
 
-In order for us to patch this class and method, we can use the following line:
+我们需要具体说明我们想检测的方法所在的类，例如`PlayerControl`类。
+之后，我们需要说明我们想检测这个类中的哪个方法。本教程的示例中，我们将检测游戏引擎用于更新物理并每隔一段时间就调用的方法`FixedUpdate`。
+
+为了应用我们的补丁，我们可以像下方代码一样操作：
 ```csharp
 // 在 typeof() 中的类是将要被修补的类
 // 在 nameof() 中的方法是将要被修补的方法
 [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.FixedUpdate))]
 ```
+
 *确保特性在你的类的上方*
 
-之后我们便可以定义一个名为 Postfix 的方法 since it is not necessary to use a Prefix
-It is easy practice to make sure your method is public, static, and that your variable is called `__instance`
-You then can access the `PlayerControl` from the variable `__instance`
+之后我们便可以定义一个名为 Postfix 的方法，因为这种情况下我们没必要用 Prefix。
+确保你的方法是公开的（其实没必要）、静态的。同时，我们还需要一个叫`__instance`的参数。
+你可以通过参数`__instance`访问被应用补丁的`PlayerControl`实例。
 
 ```csharp
 using HarmonyLib;
@@ -51,7 +52,7 @@ namespace ExampleMod
     {
         public static void Postfix(PlayerControl __instance)
         {
-            // 这将修改所有人都名字为“Apollo was here”（仅自己可见）
+            // 这将修改所有人的名字为“Apollo was here”（仅自己可见）
             __instance.nameText.Text = "Apollo was here";
         }
     }
