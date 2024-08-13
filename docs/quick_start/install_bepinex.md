@@ -5,7 +5,7 @@
 
 ## 如何下载
 
-BepInEx 以 zip 文件发布。文件名将会标注它的一些信息。
+BepInEx 以 zip 文件发布，文件名将会包含一些该版本的信息。
   - 从 [builds.bepinex.dev](https://builds.bepinex.dev/projects/bepinex_be) 下载 `BepInEx-Unity.IL2CPP-win-x86-....zip`。
 
 
@@ -40,9 +40,9 @@ BepInEx 以 zip 文件发布。文件名将会标注它的一些信息。
 ## 首次启动游戏
 
 当你装上 BepInEx 启动游戏，启动时间将会延长数十秒甚至数分钟。不用担心，BepInEx 只是在生成更多需要的文件。当你之后启动游戏，将不会像第一次时间这么长。BepInEx 将会生成以下文件夹：
-`cache`, `config`, `patchers` 和 `plugins` 文件夹。`interop/` 文件夹（可能没有）将会生成许多 `.dll` 文件，当然还会有更多，这些都是正常的。
+`cache`, `config`, `patchers` 和 `plugins` 文件夹。`interop/` 文件夹。部分文件夹里面将会生成许多 `.dll` 文件，当然还会有更多，这些都是正常的。
 
-接下来，你的文件夹应该像这样
+接下来，你的游戏文件夹应该像这样：
 
 ```
 .
