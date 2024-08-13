@@ -3,16 +3,15 @@
 ## 前置补丁（Prefix）与后置补丁（Postfix）的介绍
 
 Harmony 补丁分为前置与后置补丁。
-更详细的 Harmony 补丁文档请点[这里](https://harmony.pardeike.net/articles/patching.html)。
+
+更详细的 Harmony 文档请点[这里](https://harmony.pardeike.net/articles/patching.html)
 
 前置补丁在原方法执行前执行。它可以用来：
 - 访问并修改原方法的参数。
 - 设置原方法的返回值。
 - 跳过原方法的执行。
-- One key difference to keep in mind is that while in true Harmony, patched prefixes can cancel out
-  other prefixes, this is **NOT THE CASE** with HarmonyX, the fork of Harmony that BepInEx uses.
-  With HarmonyX, you cannot cancel out other prefixes when returning `false` and attempting to skip the original method.
-  -  Detailed rationale and implementation differences found here https://github.com/BepInEx/HarmonyX/wiki/Prefix-changes
+- 有一个重要的关键差别是在 Harmony 中已应用的前置补丁可以取消其它前置补丁（如果要防止这种情况请考虑添加补丁的优先级，详见[此处](https://harmony.pardeike.net/articles/priorities.html)），但 BepInEx 使用的 HarmonyX 分支却无法在某个前置补丁返回`false`时阻止其它前置补丁执行。
+  -  详细原理和实现差异请点[这里](https://github.com/BepInEx/HarmonyX/wiki/Prefix-changes)
 
 后置补丁在原方法执行后执行。它可以用来：
 - 读取或修改原方法的返回值。
